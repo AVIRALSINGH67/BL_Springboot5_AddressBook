@@ -2,25 +2,24 @@ package com.example.AddressBook.model;
 
 import com.example.AddressBook.dto.AddressBookDTO;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "address book_db")
-@Data
-@NoArgsConstructor
 public class AddressBook {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String name;
     private String address;
     private String phoneNumber;
     private String email;
 
-    // Constructor to convert DTO to Model
+    // Default Constructor (mandatory for Hibernate)
+    public AddressBook() {}
+
+    // Parameterized Constructor (for DTO mapping)
     public AddressBook(AddressBookDTO dto) {
         this.name = dto.getName();
         this.address = dto.getAddress();
@@ -28,9 +27,45 @@ public class AddressBook {
         this.email = dto.getEmail();
     }
 
-    public AddressBook(int i, AddressBookDTO addressBookDTO) {
+    // Getters and Setters (manual)
+
+    public int getId() {
+        return id;
     }
 
-    public void update(AddressBookDTO addressBookDTO) {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
