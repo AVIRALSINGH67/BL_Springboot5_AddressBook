@@ -27,4 +27,10 @@ public class AddressBook {
         this.phoneNumber = dto.getPhoneNumber();
         this.email = dto.getEmail();
     }
+
+    public AddressBook(int i, AddressBookDTO addressBookDTO) {
+    }
+
+    public void update(AddressBookDTO addressBookDTO) {
+    }
 }
