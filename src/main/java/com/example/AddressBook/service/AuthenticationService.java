@@ -6,12 +6,13 @@ import com.example.AddressBook.Interface.IAuthenticationService;
 import com.example.AddressBook.repository.AuthenticationRepository;
 import com.example.AddressBook.Util.*;
 import com.example.AddressBook.model.AuthUser;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Slf4j
 @Service
 public class AuthenticationService implements IAuthenticationService {
     @Autowired
